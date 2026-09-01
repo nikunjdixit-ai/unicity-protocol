@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unicity Protocol - x402 AI Sybil Verification</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unicity Protocol</h1>
+      <p class="subtitle">Decentralized Identity + AI Anti-Sybil Intelligence on Algorand</p>
+    </header>
+
+    <div class="wallet-section">
+      <button id="connect-wallet-btn" class="btn primary">Connect Algorand Wallet</button>
+      <span id="wallet-status" class="status-disconnected">Not Connected</span>
+    </div>
+
+    <div class="action-grid">
+      <div class="card">
+        <h3>Basic Sybil Check</h3>
+        <p>Free standard score and verification status.</p>
+        <button id="basic-check-btn" class="btn secondary">Get Basic Report (Free)</button>
+      </div>
+
+      <div class="card premium-card">
+        <div class="badge">x402 Protocol</div>
+        <h3>Deep AI Sybil Analysis</h3>
+        <p>Entropy graphs, cluster links & machine reputation.</p>
+        <button id="premium-check-btn" class="btn premium">Unlock Deep Report (1 USDC)</button>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <h3>Terminal Output</h3>
+      <pre id="results-output">Awaiting user action...</pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
