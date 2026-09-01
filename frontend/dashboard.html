@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicity - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard.html">
+    <nav class="sidebar">
+        <div class="sidebar-logo"><h2>UNI<span>CITY</span></h2></div>
+        <div class="sidebar-nav">
+            <a href="dashboard.html">
+                <span class="nav-icon">&#9632;</span> Dashboard
+            </a>
+            <a href="verify.html">
+                <span class="nav-icon">&#10003;</span> Verification
+            </a>
+            <a href="analysis.html">
+                <span class="nav-icon">&#9670;</span> AI Intelligence
+            </a>
+            <a href="payment.html">
+                <span class="nav-icon">&#9679;</span> Payments
+            </a>
+            <a href="activity.html">
+                <span class="nav-icon">&#9776;</span> Activity
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">DU</div>
+                <span>Profile</span>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <div class="page-header">
+            <h1 id="greeting">Good afternoon</h1>
+            <p>Your identity is verified and protected.</p>
+        </div>
+
+        <section>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-label">IDENTITY</div>
+                    <div class="card-value" style="color: var(--teal);" id="dashIdentityStatus">LOADING...</div>
+                    <div class="card-sub" id="dashIdentitySub">Connecting to backend...</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">SYBIL RISK</div>
+                    <div class="card-value" id="dashScore">-- / 100</div>
+                    <div class="status-tag status-verified" id="dashRiskTag">LOADING</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">CREDENTIAL</div>
+                    <div class="card-value" style="color: var(--teal);" id="dashCredStatus">LOADING...</div>
+                    <div class="card-sub" id="dashCredSub">Algorand Testnet</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="large-score">
+                <div class="section-label">SYBIL INTELLIGENCE</div>
+                <div class="score-number" id="dashBigScore">-- / 100</div>
+                <div class="score-label" style="color: var(--teal);" id="dashBigLevel">LOADING</div>
+                <div style="max-width: 400px; margin: 20px auto 0;">
+                    <div class="metric-row">
+                        <span class="metric-label">Identity Consistency</span>
+                        <span class="metric-value" style="color: var(--teal);" id="dashIC">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Account Authenticity</span>
+                        <span class="metric-value" style="color: var(--teal);" id="dashAA">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Network Signals</span>
+                        <span class="metric-value" style="color: var(--amber);" id="dashNS">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Behavioral Signals</span>
+                        <span class="metric-value" style="color: var(--teal);" id="dashBS">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Credential Validity</span>
+                        <span class="metric-value" style="color: var(--teal);" id="dashCV">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Confidence</span>
+                        <span class="metric-value" id="dashConf">--</span>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-secondary btn-sm" onclick="navigateTo('analysis.html')">View Full Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="section-label">IDENTITY VERIFICATION</div>
+                <div class="verification-list" style="margin-bottom: 16px;" id="dashVerifications">
+                    <div class="verify-item">
+                        <div class="v-left">
+                            <div class="v-icon">&#128268;</div>
+                            <div>
+                                <div class="v-name">GitHub</div>
+                                <div class="v-desc">Verified</div>
+                            </div>
+                        </div>
+                        <span class="status-tag status-verified">&#10003; Verified</span>
+                    </div>
+                    <div class="verify-item">
+                        <div class="v-left">
+                            <div class="v-icon">&#9993;</div>
+                            <div>
+                                <div class="v-name">Google</div>
+                                <div class="v-desc">Verified</div>
+                            </div>
+                        </div>
+                        <span class="status-tag status-verified">&#10003; Verified</span>
+                    </div>
+                    <div class="verify-item">
+                        <div class="v-left">
+                            <div class="v-icon">&#127380;</div>
+                            <div>
+                                <div class="v-name">Mock Government ID</div>
+                                <div class="v-desc">Verified</div>
+                            </div>
+                        </div>
+                        <span class="status-tag status-verified">&#10003; Verified</span>
+                    </div>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="navigateTo('verify.html')">Manage Verification</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="section-label">BLOCKCHAIN</div>
+                <div class="blockchain-grid">
+                    <div class="blockchain-item">
+                        <div class="b-label">Network</div>
+                        <div class="b-value">Algorand Testnet</div>
+                    </div>
+                    <div class="blockchain-item">
+                        <div class="b-label">Credential</div>
+                        <div class="b-value" style="color: var(--teal);" id="dashBcCred">Loading...</div>
+                    </div>
+                    <div class="blockchain-item">
+                        <div class="b-label">Nullifier</div>
+                        <div class="b-value" id="dashNullifier">Loading...</div>
+                    </div>
+                    <div class="blockchain-item">
+                        <div class="b-label">Transaction</div>
+                        <div class="b-value" id="dashTx">Loading...</div>
+                    </div>
+                    <div class="blockchain-item">
+                        <div class="b-label">Status</div>
+                        <div class="b-value" style="color: var(--teal);" id="dashBcStatus">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="section-label">PREMIUM INTELLIGENCE</div>
+                <p style="font-size: 14px; color: var(--slate); margin-bottom: 16px;">Unlock deeper Sybil analysis.</p>
+                <div class="premium-features">
+                    <div class="premium-feature"><span class="pf-icon">&#10003;</span> Network analysis</div>
+                    <div class="premium-feature"><span class="pf-icon">&#10003;</span> Behavioral analysis</div>
+                    <div class="premium-feature"><span class="pf-icon">&#10003;</span> Detailed AI explanation</div>
+                    <div class="premium-feature"><span class="pf-icon">&#10003;</span> Premium risk report</div>
+                </div>
+                <p style="font-size: 13px; color: var(--slate); margin-bottom: 16px;"><strong>x402 Payment</strong> &mdash; 0.10 ALGO on Algorand Testnet</p>
+                <button class="btn btn-primary btn-sm" onclick="navigateTo('payment.html')">Run Premium Analysis</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="section-label">RECENT ACTIVITY</div>
+                <div class="timeline" id="dashTimeline">
+                    <div class="timeline-item">
+                        <div class="timeline-event">System loaded</div>
+                        <div class="timeline-meta">just now</div>
+                    </div>
+                </div>
+                <div style="margin-top: 16px;">
+                    <button class="btn btn-secondary btn-sm" onclick="navigateTo('activity.html')">View All Activity</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-note">Unicity &mdash; Prove you're real. Know your risk.</div>
+    </div>
+    <div class="demo-badge">DEMO MODE</div>
+    <script src="js/api.js"></script>
+    <script src="js/identity.js"></script>
+    <script src="js/algorand.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        async function loadDashboard() {
+            // Load identity status from backend
+            var identity = await getIdentityStatus();
+            if (identity && identity.verified) {
+                document.getElementById('dashIdentityStatus').textContent = 'VERIFIED';
+                document.getElementById('dashIdentitySub').textContent = 'Human verification complete';
+                document.getElementById('dashCredStatus').textContent = 'VALID';
+                if (identity.credential) {
+                    document.getElementById('dashNullifier').textContent = identity.credential.nullifier || 'Not set';
+                    document.getElementById('dashTx').textContent = identity.credential.transaction || 'Not set';
+                    document.getElementById('dashBcCred').textContent = 'Valid';
+                    document.getElementById('dashBcStatus').textContent = 'Verified';
+                }
+            } else {
+                document.getElementById('dashIdentityStatus').textContent = 'NOT VERIFIED';
+                document.getElementById('dashIdentitySub').textContent = 'Verify your identity first';
+                document.getElementById('dashCredStatus').textContent = 'N/A';
+                document.getElementById('dashBcCred').textContent = 'N/A';
+                document.getElementById('dashBcStatus').textContent = 'Pending';
+            }
+
+            // Load risk analysis from backend
+            var analysis = await getRiskAnalysis();
+            if (analysis) {
+                var signals = analysis.signals || {};
+                document.getElementById('dashScore').textContent = analysis.score + ' / 100';
+                document.getElementById('dashBigScore').textContent = analysis.score + ' / 100';
+                document.getElementById('dashBigLevel').textContent = analysis.level;
+                document.getElementById('dashRiskTag').textContent = analysis.level;
+                document.getElementById('dashIC').textContent = (signals.identityConsistency || 0) + '%';
+                document.getElementById('dashAA').textContent = (signals.accountAuthenticity || 0) + '%';
+                document.getElementById('dashNS').textContent = (signals.networkBehavior || 0) + '%';
+                document.getElementById('dashBS').textContent = (signals.activityPattern || 0) + '%';
+                document.getElementById('dashCV').textContent = (signals.credentialValidity || 0) + '%';
+                document.getElementById('dashConf').textContent = analysis.confidence + '%';
+            }
+        }
+        loadDashboard();
+    </script>
+</body>
+</html>

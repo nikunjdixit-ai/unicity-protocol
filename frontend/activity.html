@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicity - Activity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="activity.html">
+    <nav class="sidebar">
+        <div class="sidebar-logo"><h2>UNI<span>CITY</span></h2></div>
+        <div class="sidebar-nav">
+            <a href="dashboard.html">
+                <span class="nav-icon">&#9632;</span> Dashboard
+            </a>
+            <a href="verify.html">
+                <span class="nav-icon">&#10003;</span> Verification
+            </a>
+            <a href="analysis.html">
+                <span class="nav-icon">&#9670;</span> AI Intelligence
+            </a>
+            <a href="payment.html">
+                <span class="nav-icon">&#9679;</span> Payments
+            </a>
+            <a href="activity.html">
+                <span class="nav-icon">&#9776;</span> Activity
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">DU</div>
+                <span>Profile</span>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <a href="dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+        <div class="page-header">
+            <h1>Activity</h1>
+            <p>Your verification and analysis history.</p>
+        </div>
+
+        <section>
+            <div class="card">
+                <div class="section-label">TIMELINE</div>
+                <div class="timeline" id="activityTimeline">
+                    <div class="timeline-item">
+                        <div class="timeline-event">Identity Verified</div>
+                        <div class="timeline-meta">completed &middot; 2h ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Credential Created</div>
+                        <div class="timeline-meta">completed &middot; 2h ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Basic Analysis Completed</div>
+                        <div class="timeline-meta">completed &middot; 1h ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Premium Analysis Requested</div>
+                        <div class="timeline-meta">completed &middot; 45m ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Payment Required</div>
+                        <div class="timeline-meta">completed &middot; 44m ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Payment Settled</div>
+                        <div class="timeline-meta">completed &middot; 43m ago</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-event">Premium Analysis Unlocked</div>
+                        <div class="timeline-meta">completed &middot; 43m ago</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-note">Unicity &mdash; Prove you're real. Know your risk.</div>
+    </div>
+    <div class="demo-badge">DEMO MODE</div>
+    <script src="js/api.js"></script>
+    <script src="js/identity.js"></script>
+    <script src="js/algorand.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicity - Payments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="payment.html">
+    <nav class="sidebar">
+        <div class="sidebar-logo"><h2>UNI<span>CITY</span></h2></div>
+        <div class="sidebar-nav">
+            <a href="dashboard.html">
+                <span class="nav-icon">&#9632;</span> Dashboard
+            </a>
+            <a href="verify.html">
+                <span class="nav-icon">&#10003;</span> Verification
+            </a>
+            <a href="analysis.html">
+                <span class="nav-icon">&#9670;</span> AI Intelligence
+            </a>
+            <a href="payment.html">
+                <span class="nav-icon">&#9679;</span> Payments
+            </a>
+            <a href="activity.html">
+                <span class="nav-icon">&#9776;</span> Activity
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">DU</div>
+                <span>Profile</span>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <a href="dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+        <div class="page-header">
+            <h1>Premium Intelligence</h1>
+            <p>Advanced Sybil analysis requires payment.</p>
+        </div>
+
+        <div id="paymentRequired">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="section-label">DETAILS</div>
+                    <div class="metric-row">
+                        <span class="metric-label">Premium Analysis</span>
+                        <span class="metric-value">0.10 ALGO</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Network</span>
+                        <span class="metric-value">Algorand Testnet</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Protocol</span>
+                        <span class="metric-value">x402</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Facilitator</span>
+                        <span class="metric-value">GoPlausible</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="section-label">PAYMENT FLOW</div>
+                    <div class="pay-flow">
+                        <div class="pay-step active" id="payStep1">REQUEST</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep2">POST /api/payment/request</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep3">PAYMENT REQUIRED</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep4">x402 Protocol</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep5">GoPlausible</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep6">ALGORAND</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep7">POST /api/payment/verify</div>
+                        <div class="pay-arrow">&darr;</div>
+                        <div class="pay-step" id="payStep8">ANALYSIS UNLOCKED</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 8px;">
+                <button class="btn btn-amber" id="payButton" onclick="simulatePayment()">Pay &amp; Analyze</button>
+            </div>
+        </div>
+
+        <div id="paymentProcessing" style="display: none; text-align: center; padding: 60px 0;">
+            <div style="font-size: 32px; margin-bottom: 16px; animation: spin 1s linear infinite;">&#9696;</div>
+            <p style="font-size: 16px; font-weight: 600; color: var(--obsidian);">Processing payment...</p>
+            <p style="font-size: 14px; color: var(--slate); margin-top: 4px;" id="payStatusMsg">Connecting to GoPlausible facilitator</p>
+        </div>
+
+        <div id="paymentSuccess" style="display: none;">
+            <div class="payment-success">
+                <div class="check-icon">&#10003;</div>
+                <h2 style="font-size: 22px; font-weight: 700; color: var(--obsidian); margin-bottom: 4px;">Payment Settled</h2>
+                <div style="margin: 20px auto; max-width: 360px;">
+                    <div class="metric-row">
+                        <span class="metric-label">Amount</span>
+                        <span class="metric-value" id="payAmt">0.10 ALGO</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Network</span>
+                        <span class="metric-value">Algorand Testnet</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Facilitator</span>
+                        <span class="metric-value">GoPlausible</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Transaction</span>
+                        <span class="metric-value" id="payTxHash">0x&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="text-align: center; margin-top: 24px;">
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--obsidian); margin-bottom: 8px;">Premium Analysis Unlocked</h3>
+                <p style="font-size: 14px; color: var(--slate); margin-bottom: 16px;">Your premium Sybil intelligence report is now available.</p>
+                <button class="btn btn-primary" onclick="navigateTo('analysis.html')">View Premium Report</button>
+            </div>
+        </div>
+
+        <div id="paymentFailed" style="display: none; text-align: center; padding: 60px 0;">
+            <div style="font-size: 32px; margin-bottom: 16px; color: var(--crimson);">&#10007;</div>
+            <p style="font-size: 16px; font-weight: 600; color: var(--crimson);">Payment Failed</p>
+            <p style="font-size: 14px; color: var(--slate); margin-top: 4px;" id="payFailMsg">Please try again or check your wallet.</p>
+            <div style="margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="resetPaymentUI()">Try Again</button>
+            </div>
+        </div>
+
+        <div class="footer-note">Unicity &mdash; Prove you're real. Know your risk.</div>
+    </div>
+    <div class="demo-badge">DEMO MODE</div>
+    <script src="js/api.js"></script>
+    <script src="js/identity.js"></script>
+    <script src="js/algorand.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        var payStepIndex = 1;
+
+        async function simulatePayment() {
+            document.getElementById('payButton').disabled = true;
+            document.getElementById('payButton').textContent = 'Processing...';
+            await runPayStep();
+        }
+
+        async function runPayStep() {
+            if (payStepIndex >= 8) {
+                // Step 7: verify payment via backend
+                document.getElementById('payStatusMsg').textContent = 'Verifying payment with backend...';
+                var txId = '0x' + Math.random().toString(16).substr(2, 16);
+                var result = await settlePayment(txId);
+                if (result && result.status === 'settled') {
+                    await doUnlockPremium();
+                    showPaymentSuccess(txId);
+                } else {
+                    showPaymentFailed('Payment verification failed');
+                }
+                return;
+            }
+            var step = document.getElementById('payStep' + payStepIndex);
+            if (step) {
+                step.classList.add('done');
+                step.classList.remove('active');
+            }
+
+            // Step 2: request payment requirement from backend
+            if (payStepIndex === 1) {
+                var req = await startPayment();
+                if (!req || !req.success) {
+                    showPaymentFailed('Could not request payment requirement from backend');
+                    return;
+                }
+            }
+
+            payStepIndex++;
+            var nextStep = document.getElementById('payStep' + payStepIndex);
+            if (nextStep) {
+                nextStep.classList.add('active');
+            }
+            if (payStepIndex === 3) {
+                document.getElementById('paymentRequired').style.display = 'none';
+                document.getElementById('paymentProcessing').style.display = 'block';
+            }
+            setTimeout(runPayStep, 400);
+        }
+
+        function showPaymentSuccess(txId) {
+            document.getElementById('paymentProcessing').style.display = 'none';
+            document.getElementById('paymentSuccess').style.display = 'block';
+            if (txId) {
+                document.getElementById('payTxHash').textContent = txId;
+            }
+        }
+
+        function showPaymentFailed(msg) {
+            document.getElementById('paymentProcessing').style.display = 'none';
+            document.getElementById('paymentRequired').style.display = 'none';
+            document.getElementById('paymentFailed').style.display = 'block';
+            if (msg) {
+                document.getElementById('payFailMsg').textContent = msg;
+            }
+            document.getElementById('payButton').disabled = false;
+            document.getElementById('payButton').textContent = 'Pay \u0026 Analyze';
+        }
+
+        function resetPaymentUI() {
+            document.getElementById('paymentFailed').style.display = 'none';
+            document.getElementById('paymentRequired').style.display = 'block';
+            document.getElementById('payButton').disabled = false;
+            document.getElementById('payButton').textContent = 'Pay \u0026 Analyze';
+            payStepIndex = 1;
+            for (var i = 1; i <= 8; i++) {
+                var s = document.getElementById('payStep' + i);
+                if (s) {
+                    s.classList.remove('active', 'done');
+                }
+            }
+            document.getElementById('payStep1').classList.add('active');
+            resetPaymentState();
+        }
+
+        // Check existing payment status on load
+        async function checkPayStatus() {
+            var ps = await getPaymentStatus();
+            if (ps && ps.status === 'settled') {
+                document.getElementById('paymentRequired').style.display = 'none';
+                document.getElementById('paymentSuccess').style.display = 'block';
+            }
+        }
+        checkPayStatus();
+    </script>
+    <style>
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</body>
+</html>
