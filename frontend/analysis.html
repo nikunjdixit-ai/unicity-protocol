@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicity - AI Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="analysis.html">
+    <nav class="sidebar">
+        <div class="sidebar-logo"><h2>UNI<span>CITY</span></h2></div>
+        <div class="sidebar-nav">
+            <a href="dashboard.html">
+                <span class="nav-icon">&#9632;</span> Dashboard
+            </a>
+            <a href="verify.html">
+                <span class="nav-icon">&#10003;</span> Verification
+            </a>
+            <a href="analysis.html">
+                <span class="nav-icon">&#9670;</span> AI Intelligence
+            </a>
+            <a href="payment.html">
+                <span class="nav-icon">&#9679;</span> Payments
+            </a>
+            <a href="activity.html">
+                <span class="nav-icon">&#9776;</span> Activity
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">DU</div>
+                <span>Profile</span>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <a href="dashboard.html" class="back-link">&larr; Back to Dashboard</a>
+        <div class="page-header">
+            <h1>AI Sybil Intelligence</h1>
+            <p>AI-assessed Sybil risk based on available signals.</p>
+        </div>
+
+        <div class="large-score">
+            <div class="score-number" id="anaScore">-- / 100</div>
+            <div class="score-label" style="color: var(--teal);" id="anaLevel">LOADING</div>
+            <div class="score-conf">Confidence: <strong id="anaConf">--</strong></div>
+        </div>
+
+        <section>
+            <div class="card">
+                <div class="section-label">RISK BREAKDOWN</div>
+                <div class="metric-row">
+                    <span class="metric-label">Identity Consistency</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar progress-teal" id="anaICBar" style="width: 0%;"></div>
+                        </div>
+                        <span class="metric-value" style="min-width: 40px; text-align: right;" id="anaIC">--</span>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Account Authenticity</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar progress-teal" id="anaAABar" style="width: 0%;"></div>
+                        </div>
+                        <span class="metric-value" style="min-width: 40px; text-align: right;" id="anaAA">--</span>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Network Behavior</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar progress-amber" id="anaNSBar" style="width: 0%;"></div>
+                        </div>
+                        <span class="metric-value" style="min-width: 40px; text-align: right;" id="anaNS">--</span>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Activity Pattern</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar progress-teal" id="anaAPBar" style="width: 0%;"></div>
+                        </div>
+                        <span class="metric-value" style="min-width: 40px; text-align: right;" id="anaAP">--</span>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Credential Validity</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar progress-teal" id="anaCVBar" style="width: 0%;"></div>
+                        </div>
+                        <span class="metric-value" style="min-width: 40px; text-align: right;" id="anaCV">--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="section-label">AI ASSESSMENT</div>
+                <div class="ai-text" id="anaAIText">
+                    Loading analysis from backend...
+                </div>
+                <p style="font-size: 13px; color: var(--slate); margin-top: 14px;">Last analysis: <span id="anaDate">--</span></p>
+                <div style="margin-top: 16px;">
+                    <button class="btn btn-primary btn-sm" onclick="navigateTo('payment.html')">Run Premium Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="premiumSection" style="display: none;">
+            <div class="premium-report">
+                <div class="section-label">PREMIUM SYBIL INTELLIGENCE</div>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 40px; font-weight: 700; color: var(--obsidian);" id="preScore">-- / 100</div>
+                    <div class="status-tag status-verified" style="margin-top: 8px;" id="preLevel">LOW RISK</div>
+                </div>
+                <div style="max-width: 360px; margin: 0 auto;">
+                    <div class="metric-row">
+                        <span class="metric-label">Identity</span>
+                        <span class="metric-value" style="color: var(--teal);" id="preIdentity">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Account</span>
+                        <span class="metric-value" style="color: var(--teal);" id="preAccount">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Network</span>
+                        <span class="metric-value" style="color: var(--amber);" id="preNetwork">--</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Behavior</span>
+                        <span class="metric-value" style="color: var(--teal);" id="preBehavior">--</span>
+                    </div>
+                </div>
+                <div class="ai-text" style="margin-top: 20px;" id="preExplanation">
+                    Loading premium analysis...
+                </div>
+                <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--card-border);">
+                    <div class="metric-row" style="border: none; padding: 4px 0;">
+                        <span class="metric-label" style="font-size: 13px;">Payment</span>
+                        <span class="status-tag status-verified" style="font-size: 11px;">&#10003; Settled</span>
+                    </div>
+                    <div class="metric-row" style="border: none; padding: 4px 0;">
+                        <span class="metric-label" style="font-size: 13px;">Network</span>
+                        <span class="metric-value" style="font-size: 13px;">Algorand Testnet</span>
+                    </div>
+                    <div class="metric-row" style="border: none; padding: 4px 0;">
+                        <span class="metric-label" style="font-size: 13px;">Transaction</span>
+                        <span class="metric-value" style="font-size: 13px;" id="preTx">0x&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-note">Unicity &mdash; Prove you're real. Know your risk.</div>
+    </div>
+    <div class="demo-badge">DEMO MODE</div>
+    <script src="js/api.js"></script>
+    <script src="js/identity.js"></script>
+    <script src="js/algorand.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        async function loadAnalysis() {
+            var data = await getRiskAnalysis();
+            if (data) {
+                var sig = data.signals || {};
+                document.getElementById('anaScore').textContent = data.score + ' / 100';
+                document.getElementById('anaLevel').textContent = data.level;
+                document.getElementById('anaConf').textContent = data.confidence + '%';
+                document.getElementById('anaIC').textContent = (sig.identityConsistency || 0) + '%';
+                document.getElementById('anaICBar').style.width = (sig.identityConsistency || 0) + '%';
+                document.getElementById('anaAA').textContent = (sig.accountAuthenticity || 0) + '%';
+                document.getElementById('anaAABar').style.width = (sig.accountAuthenticity || 0) + '%';
+                document.getElementById('anaNS').textContent = (sig.networkBehavior || 0) + '%';
+                document.getElementById('anaNSBar').style.width = (sig.networkBehavior || 0) + '%';
+                document.getElementById('anaAP').textContent = (sig.activityPattern || 0) + '%';
+                document.getElementById('anaAPBar').style.width = (sig.activityPattern || 0) + '%';
+                document.getElementById('anaCV').textContent = (sig.credentialValidity || 0) + '%';
+                document.getElementById('anaCVBar').style.width = (sig.credentialValidity || 0) + '%';
+                document.getElementById('anaAIText').textContent = data.assessment || 'No assessment available.';
+                document.getElementById('anaDate').textContent = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) + ' \u00B7 ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+            }
+
+            // Check for premium analysis
+            var premium = await fetchPremiumAnalysis();
+            if (premium && premium.score) {
+                var psig = premium.signals || {};
+                document.getElementById('premiumSection').style.display = 'block';
+                document.getElementById('preScore').textContent = premium.score + ' / 100';
+                document.getElementById('preLevel').textContent = premium.level;
+                document.getElementById('preIdentity').textContent = psig.identity || '--';
+                document.getElementById('preAccount').textContent = psig.account || '--';
+                document.getElementById('preNetwork').textContent = psig.network || '--';
+                document.getElementById('preBehavior').textContent = psig.behavior || '--';
+                document.getElementById('preExplanation').textContent = premium.assessment || 'No assessment available.';
+            }
+        }
+        loadAnalysis();
+    </script>
+</body>
+</html>

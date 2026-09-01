@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unicity Protocol - x402 AI Sybil Verification</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicity</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Unicity Protocol</h1>
-      <p class="subtitle">Decentralized Identity + AI Anti-Sybil Intelligence on Algorand</p>
-    </header>
-
-    <div class="wallet-section">
-      <button id="connect-wallet-btn" class="btn primary">Connect Algorand Wallet</button>
-      <span id="wallet-status" class="status-disconnected">Not Connected</span>
+<body data-page="index.html">
+    <div class="grainient-bg" id="grainientBg"></div>
+    <div class="main-content index-page">
+        <div class="index-center">
+            <div class="index-logo">UNI<span>CITY</span></div>
+            <p class="index-tagline">Prove you're real. Know your risk.</p>
+            <p class="index-desc">Privacy-preserving identity verification with AI-powered Sybil risk intelligence.</p>
+            <div class="index-buttons">
+                <button class="btn-index-primary" onclick="navigateTo('verify.html')">Get Started</button>
+                <button class="btn-index-secondary" onclick="navigateTo('dashboard.html')">View Demo</button>
+            </div>
+        </div>
     </div>
-
-    <div class="action-grid">
-      <div class="card">
-        <h3>Basic Sybil Check</h3>
-        <p>Free standard score and verification status.</p>
-        <button id="basic-check-btn" class="btn secondary">Get Basic Report (Free)</button>
-      </div>
-
-      <div class="card premium-card">
-        <div class="badge">x402 Protocol</div>
-        <h3>Deep AI Sybil Analysis</h3>
-        <p>Entropy graphs, cluster links & machine reputation.</p>
-        <button id="premium-check-btn" class="btn premium">Unlock Deep Report (1 USDC)</button>
-      </div>
-    </div>
-
-    <div class="output-section">
-      <h3>Terminal Output</h3>
-      <pre id="results-output">Awaiting user action...</pre>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <div class="demo-badge">DEMO MODE</div>
+    <script src="js/api.js"></script>
+    <script src="js/grainient.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        initGrainient("grainientBg", {
+            color1: "#1bc5b3",
+            color2: "#171817",
+            color3: "#159A8C",
+            timeSpeed: 0.12,
+            warpStrength: 1.0,
+            warpFrequency: 5.0,
+            warpSpeed: 1.5,
+            warpAmplitude: 50.0,
+            blendAngle: 0.0,
+            blendSoftness: 0.05,
+            rotationAmount: 500.0,
+            noiseScale: 2.0,
+            grainAmount: 0.06,
+            grainScale: 2.0,
+            contrast: 1.5,
+            gamma: 0.95,
+            saturation: 1.2,
+            centerX: 0.0,
+            centerY: 0.0,
+            zoom: 0.85
+        });
+    </script>
 </body>
 </html>
