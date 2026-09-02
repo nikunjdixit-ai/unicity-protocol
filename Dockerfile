@@ -1,4 +1,4 @@
-FROM node:20-bookworm-slim
+﻿FROM node:20-bookworm-slim
 
 ENV NODE_ENV=production \
     PORT=3000 \
@@ -19,6 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
+# Install typescript globally so tsc is accessible anywhere
+RUN npm install -g typescript
+
 WORKDIR /app
 
 COPY package*.json requirements.txt ./
@@ -29,11 +32,11 @@ COPY backend/package*.json ./backend/
 RUN cd backend && npm install --omit=dev
 
 COPY x402/package*.json x402/tsconfig.json ./x402/
-RUN cd x402 && npm install && npm install typescript
+RUN cd x402 && npm install --include=dev
 
 COPY . .
 
-RUN cd x402 && npx tsc
+RUN cd x402 && tsc
 
 EXPOSE 3000
 
@@ -41,4 +44,3 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD node -e "fetch('http://localhost:' + (process.env.PORT || 3000) + '/api/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"
 
 CMD ["node", "backend/server.js"]
-

@@ -1,8 +1,6 @@
 ﻿node_modules
-backend/node_modules
-x402/node_modules
+**/node_modules
 .git
 .env
 __pycache__
 *.pyc
-x402/dist
