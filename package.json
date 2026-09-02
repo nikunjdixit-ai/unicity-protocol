@@ -5,8 +5,10 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "demo": "node demo.js"
+    "start": "node backend/server.js",
+    "demo": "node demo.js",
+    "build": "cd x402 && npm run build",
+    "build:all": "cd backend && npm install && cd ../x402 && npm install && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",

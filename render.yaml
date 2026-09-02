@@ -1,0 +1,27 @@
+﻿services:
+  - type: web
+    name: unicity-protocol
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt && npm install && cd backend && npm install && cd ../x402 && npm install && npm run build"
+    startCommand: "node backend/server.js"
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: NODE_ENV
+        value: production
+      - key: ALGOD_SERVER
+        value: https://testnet-api.algonode.cloud
+      - key: ALGOD_PORT
+        value: "443"
+      - key: ALGOD_NETWORK
+        value: testnet
+      - key: USDC_ASSET_ID
+        value: "10458941"
+      - key: AVM_ADDRESS
+        value: GD647DXYZTNWXZAUJ447K7K54D6V6L7P7W6KFF44P722YFFLFLJ2G72K4E
+      - key: APP_SECRET_SALT
+        value: algorand_anti_sybil_hackathon_super_secret_salt_2026
+      - key: ISSUER_DID
+        value: did:sybil:algorand:authority:0x001
