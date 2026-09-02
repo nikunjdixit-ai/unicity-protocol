@@ -1,4 +1,4 @@
-﻿FROM node:20-bookworm-slim
+FROM node:20-bookworm-slim
 
 ENV NODE_ENV=production \
     PORT=3000 \
@@ -29,11 +29,11 @@ COPY backend/package*.json ./backend/
 RUN cd backend && npm install --omit=dev
 
 COPY x402/package*.json x402/tsconfig.json ./x402/
-RUN cd x402 && npm install
+RUN cd x402 && npm install && npm install typescript
 
 COPY . .
 
-RUN cd x402 && npm run build
+RUN cd x402 && npx tsc
 
 EXPOSE 3000
 
@@ -41,3 +41,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD node -e "fetch('http://localhost:' + (process.env.PORT || 3000) + '/api/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"
 
 CMD ["node", "backend/server.js"]
+

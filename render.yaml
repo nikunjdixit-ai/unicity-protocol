@@ -1,10 +1,10 @@
-﻿services:
+services:
   - type: web
     name: unicity-protocol
     runtime: node
     plan: free
     region: oregon
-    buildCommand: "pip install -r requirements.txt && npm install && cd backend && npm install && cd ../x402 && npm install && npm run build"
+    buildCommand: "pip install -r requirements.txt && npm install && cd backend && npm install && cd ../x402 && npm install && npx tsc"
     startCommand: "node backend/server.js"
     envVars:
       - key: PORT
@@ -25,3 +25,4 @@
         value: algorand_anti_sybil_hackathon_super_secret_salt_2026
       - key: ISSUER_DID
         value: did:sybil:algorand:authority:0x001
+
